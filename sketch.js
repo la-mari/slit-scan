@@ -6,13 +6,14 @@ var img;
 
 function preload() {
 	img = loadImage("assets/lemur.jpg");
+	//access pixels within image
+	img.loadPixels();
 }
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
 	imageMode(CENTER);
-	//access pixels within image
-	img.loadPixels();
+
 	background(0);
 	stroke(255, 0, 0);
 	strokeWeight(2);
@@ -30,7 +31,7 @@ function draw(){
 
 
 	//get color at y position from 0 to height, set to c
-	for (var y=0; y<height; y++){
+	for (var y=0; y<img.height; y++){
 		var c = img.get(x, y);
 		//position on top moving across the screen setting to color c
 		//creates new column of pixels
